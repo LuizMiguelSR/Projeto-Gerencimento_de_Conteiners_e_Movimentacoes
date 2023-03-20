@@ -51,6 +51,18 @@ class MovimentacaoController extends Controller
         return view('gerenciar_movimentacao', compact('movimentacoes'));
     }
 
+    /*public function ordenar_movimentacao(Request $request)
+    {
+        if ($request['nome'] === 'ASC') {
+            $movimentacoes = Movimentacao::with('container.cliente')->get()->orderBy('cliente', 'ASC')->get();
+            return view('gerenciar_movimentacao', compact('movimentacoes'));
+        }
+        if ($request['nome'] === 'DESC') {
+            $movimentacoes = Movimentacao::with('container.cliente')->get()->orderBy('cliente', 'DESC')->get();
+            return view('gerenciar_movimentacao', compact('movimentacoes'));
+        }
+    }*/
+
     public function update(Request $request, $id)
     {
         $dataMovimentacao = $request->validate([

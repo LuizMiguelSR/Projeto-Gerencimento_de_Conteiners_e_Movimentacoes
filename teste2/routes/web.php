@@ -30,5 +30,6 @@ Route::post('containers/order', [ContainerController::class, 'ordenar'])->name('
 Route::resource('movimentacoes', MovimentacaoController::class);
 Route::post('movimentacoes/filtrar/container', [MovimentacaoController::class, 'filtrar_movimentacao_filtrar'])->name('filtrar_movimentacao_filtrar');
 Route::post('movimentacoes/filtrar/movimentacao', [MovimentacaoController::class, 'filtrar_movimentacao'])->name('filtrar_movimentacao');
+/*Route::post('movimentacoes/order', [MovimentacaoController::class, 'ordenar_movimentacao'])->name('ordenar_movimentacao');*/
 
 Route::get('relatorio', [MovimentacaoController::class, 'relatorio'])->name('relatorio');

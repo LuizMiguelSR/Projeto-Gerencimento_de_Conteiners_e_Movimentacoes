@@ -15,6 +15,21 @@
         </div>
         <h2>Gerenciar Movimentações</h2>
         <div>
+            <form class="row g-3" method="post" action="{{ route('ordenar_movimentacao') }}">
+                @csrf
+                <div class="col-md-12 mt-5">
+
+                    <label for="nome">Ordenar:</label>
+                    <select name="nome" id="nome">
+                        <option value="">Selecione</option>
+                        <option value="ASC">A-Z</option>
+                        <option value="DESC">Z-A</option>
+                    </select>
+
+                    <button type="submit" class="btn btn-primary">Ordenar</button>
+                </div>
+            </form>
+
             <form class="row g-3" method="post" action="{{ route('filtrar_movimentacao') }}">
                 @csrf
                 <div class="col-md-12 mt-5">
