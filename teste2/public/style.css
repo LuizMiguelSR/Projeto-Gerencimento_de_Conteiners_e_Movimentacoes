@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&family=Roboto+Flex:opsz,wght@8..144,100;8..144,300&display=swap');
+
+:root{
+    --cor1: #0b6567;
+    --cor2: #00e6923b;
+    --cor3: #c6cfc3c0;
+    --cor4: #00e69200;
+    --cor5: #00000046;
+    --cor6: #00000054;
+    --cor7: #ffffff00;
+
+    --fonte-padrao: 'Roboto Flex', sans-serif;
+    --fonte-destaque: 'Roboto Condensed', sans-serif;
+}
+
+body {
+    background: linear-gradient(360deg, #ffffff, #ffffff 62%);
+    font-family: var(--fonte-padrao);
+}
+
+section {
+    padding-left: 5vw;
+    padding-right: 5vw;
+}
+
+/* --- Estilos dos links --- */
+a {
+    text-decoration: none;
+    color: black;
+    text-decoration: none;
+    text-transform: none;
+}
+
+/* --- Estilos dos paragrafos --- */
+p {
+    color: rgb(0, 0, 0);
+    border-color: var(--cor1);
+}
+
+/* --- Estilos dos títulos --- */
+h1 {
+    font-family: var(--fonte-destaque);
+    color: var(--cor1);
+    text-align: center;
+}
+
+h2 {
+    font-family: var(--fonte-padrao);
+    color: var(--cor1);
+    text-align: center;
+}
+
+h3 {
+    color: var(--cor1);
+    text-align: center;
+}
+
+h4 {
+    color: var(--cor1);
+    text-align: center;
+}
+
+h6 {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+img {
+    width: 100px;
+    height: 100px;
+}
+
+table {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+th {
+    text-align: center;
+    width: 300px;
+    font-size: 1.2em;
+}
+
+td {
+    text-align: center;
+    width: 300px;
+}
+
+button {
+    margin: 0;
+}
+
+.back {
+    width: 50px;
+    height: 50px;
+}
+
+.imagem {
+    text-align: center;
+    display: inline-block;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    padding: 5%;
+}
+
+.button1 {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+}
