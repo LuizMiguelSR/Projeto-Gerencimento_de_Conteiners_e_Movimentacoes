@@ -15,16 +15,30 @@
         </div>
         <h2>Nova Movimentação</h2>
         <div>
-            <form class="row g-3" method="post" action="{{ route('filtrar_container') }}">
+            <form class="row g-3" method="post" action="{{ route('movimentacoes_filtrar_container') }}">
                 @csrf
                 <div class="col-md-12 mt-5">
-                    <label for="cliente">Cliente:</label>
+                    <label for="cliente">Filtrar por cliente:</label>
                     <input type="text" name="cliente" id="cliente" pattern="([aA-zZzáàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+)" maxlength="50">
 
-                    <label for="numero_container">Número do Container:</label>
+                    <label for="numero_container">Filtrar pelo número do container:</label>
                     <input type="text" name="numero_container" id="numero_container" pattern="[A-Z]{4}[0-9]{7}" maxlength="11">
 
                     <button type="submit" class="btn btn-primary">Filtrar</button>
+                </div>
+            </form>
+            <form class="row g-3" method="post" action="{{ route('movimentacoes_ordernar_container') }}">
+                @csrf
+                <div class="col-md-12 mt-5">
+
+                    <label for="nome">Ordenar por cliente:</label>
+                    <select name="nome" id="nome">
+                        <option value="">Selecione</option>
+                        <option value="ASC">A-Z</option>
+                        <option value="DESC">Z-A</option>
+                    </select>
+
+                    <button type="submit" class="btn btn-primary">Ordenar</button>
                 </div>
             </form>
             <table class="table table table-hover">
@@ -55,10 +69,10 @@
                                 </div>
                                 <div class="modal-body">
                                     <div>
-                                        <label>Cliente:{{ $container->cliente }}</label>
+                                        <label>Cliente: {{ $container->cliente }}</label>
                                     </div>
                                     <div>
-                                        <label>Número do Container:{{ $container->numero_container }}</label>
+                                        <label>Número do Container: {{ $container->numero_container }}</label>
                                     </div>
                                     <form method="post" action="{{ route('movimentacoes.store') }}">
                                         @csrf
@@ -79,17 +93,17 @@
 
                                             <input type="hidden" name="container_id" value="{{ $container->id }}">
                                             <div>
-                                                <label for="data_hora_inicio">Data e Hora de Início:</label>
+                                                <label for="data_hora_inicio">Data e Hora de Início: </label>
                                                 <input type="datetime-local" name="data_hora_inicio" required>
                                             </div>
 
                                             <div>
-                                                <label for="data_hora_fim">Data e Hora de Fim:</label>
+                                                <label for="data_hora_fim">Data e Hora de Fim: </label>
                                                 <input type="datetime-local" name="data_hora_fim" required>
                                             </div>
 
                                             <div>
-                                                <button class="btn btn-success" type="submit">CADASTRAR</button>
+                                                <button class="btn btn-success" type="submit">Movimentar</button>
                                             </div>
                                     </form>
                                 </div>

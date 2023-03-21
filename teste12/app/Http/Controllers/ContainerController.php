@@ -22,7 +22,7 @@ class ContainerController extends Controller
             'categoria' => 'required|in:Importação,Exportação',
         ]);
         $container = Container::create($dataContainer);
-        return redirect()->route('containers.index');
+        return redirect()->route('containers.create');
     }
 
     public function index()
@@ -51,25 +51,30 @@ class ContainerController extends Controller
         return redirect()->route('containers.index');
     }
 
-    public function filtrar(Request $request)
+    public function ordenar_container(Request $request)
     {
-        $query = Container::query()
-        ->when($request->cliente, function($query, $cliente){
-            return $query->where('cliente', 'LIKE', '%' . $cliente . '%');
-        })
-        ->when($request->numero_container, function($query, $numero_container){
-            return $query->where('numero_container', 'LIKE', '%' . $numero_container . '%');
-        })
-        ->when($request->tipo, function($query, $tipo){
-            return $query->where('tipo', $tipo);
-        })
-        ->when($request->status, function($query, $status){
-            return $query->where('status', $status);
-        })
-        ->when($request->categoria, function($query, $categoria){
-            return $query->where('categoria', $categoria);
-        });
-        $containers = $query->get();
+        if ($request->nome === 'ASC') {
+            $containers = Container::orderBy('cliente', 'ASC')->get();
+            return view('gerenciar_container', compact('containers'));
+        }
+        if ($request->nome === 'DESC') {
+            $containers = Container::orderBy('cliente', 'ASC')->get();
+            return view('gerenciar_container', compact('containers'));
+        }
+        if (empty($request->nome)) {
+            return redirect()->route('containers.index');
+        }
+    }
+
+    public function filtrar_container(Request $request)
+    {
+        $containers = Container::query()
+            ->when($request->cliente, fn($query) => $query->where('cliente', 'LIKE', '%' . $request->cliente . '%'))
+            ->when($request->numero_container, fn($query) => $query->where('numero_container', 'LIKE', '%' . $request->numero_container . '%'))
+            ->when($request->tipo, fn($query) => $query->where('tipo', $request->tipo))
+            ->when($request->status, fn($query) => $query->where('status', $request->status))
+            ->when($request->categoria, fn($query) => $query->where('categoria', $request->categoria))
+            ->get();
         return view('gerenciar_container', compact('containers'));
     }
 }

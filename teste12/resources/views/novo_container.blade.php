@@ -1,5 +1,5 @@
 @php
-    $title = "Novo Container";
+    $title = "Novo Contêiner";
 @endphp
 
 @extends('layouts.layout')
@@ -13,9 +13,9 @@
                 <h1>Empresa X</h1>
             </div>
         </div>
-        <h2>Novo Container</h2>
+        <h2>Novo Contêiner</h2>
         <div>
-            <form class="row g-3" method="POST" action="{{ route('containers.store') }}">
+            <form class="row g-3" method="post" action="{{ route('containers.store') }}">
             @csrf
                 <div class="col-md-12 mt-5">
                     <label for="cliente">Cliente:</label>
@@ -24,23 +24,23 @@
                     <label for="numero_container">Número do container:</label>
                     <input type="text" id="numero_container" name="numero_container" pattern="[A-Z]{4}[0-9]{7}" placeholder="Ex: TEST1234567" required maxlength="11">
 
-                    <label for="tipo">Tipo:</label>
+                    <label for="tipo">Tipo do contêiner:</label>
                     <select id="tipo"  type="number" name="tipo" required>
-                        <option value="">Selecione o tipo de container</option>
+                        <option value="">Selecione o tipo de contêiner</option>
                         <option value="20">20 pés</option>
                         <option value="40">40 pés</option>
                     </select>
 
                     <label for="status">Status:</label>
                     <select id="status" name="status" required>
-                        <option value="">Selecione o status do container</option>
+                        <option value="">Selecione o status do contêiner</option>
                         <option value="Cheio">Cheio</option>
                         <option value="Vazio">Vazio</option>
                     </select>
 
                     <label for="categoria">Categoria:</label>
                     <select id="categoria" name="categoria" required>
-                        <option value="">Selecione a categoria do container</option>
+                        <option value="">Selecione a categoria do contêiner</option>
                         <option value="Importação">Importação</option>
                         <option value="Exportação">Exportação</option>
                     </select>

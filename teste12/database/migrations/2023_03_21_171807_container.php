@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('cliente');
             $table->string('numero_container');
-            $table->enum('tipo', ['20','40']);
-            $table->enum('status', ['Cheio','Vazio']);
-            $table->enum('categoria', ['Importação','Exportação']);
+            $table->enum('tipo',['20','40']);
+            $table->enum('status',['Cheio','Vazio']);
+            $table->enum('categoria',['Importação','Exportação']);
             $table->timestamps();
         });
     }

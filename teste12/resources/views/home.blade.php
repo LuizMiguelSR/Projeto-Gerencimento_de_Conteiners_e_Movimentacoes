@@ -19,13 +19,13 @@
                 <div class="imagem">
                     <a href="{{ route('containers.create') }}">
                         <img src="{{ asset('imagens/novoContainer.png') }}" alt="Registrar Container" title="Registrar Container">
-                        <h6 class="menu">Registrar Container</h6>
+                        <h6 class="menu">Registrar Contêiners</h6>
                     </a>
                 </div>
                 <div class="imagem">
                     <a href="{{ route('containers.index') }}">
                         <img src="{{ asset('imagens/container.png') }}" alt="Gerenciar Containers" title="Gerenciar Containers">
-                        <h6 class="menu">Gerenciar Containers</h6>
+                        <h6 class="menu">Gerenciar Contêiners</h6>
                     </a>
                 </div>
             </div>
@@ -33,7 +33,7 @@
                 <div class="imagem">
                     <a href="{{ route('movimentacoes.create') }}">
                         <img src="{{ asset('imagens/cargo.png') }}" alt="Novas Movimentações" title="Novas Movimentações">
-                        <h6 class="menu">Novas Movimentaçõesr</h6>
+                        <h6 class="menu">Novas Movimentações</h6>
                     </a>
                 </div>
                 <div class="imagem">

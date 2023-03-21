@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContainerController;
 use App\Http\Controllers\MovimentacaoController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,10 +24,13 @@ Route::get('/home', function () {
 })->name('home');
 
 Route::resource('containers', ContainerController::class);
-Route::post('containers/filtrar/container', [ContainerController::class, 'filtrar'])->name('filtrar');
+Route::post('containers/ordenar/container', [ContainerController::class, 'ordenar_container'])->name('containers_ordenar_container');
+Route::post('containers/filtrar/container', [ContainerController::class, 'filtrar_container'])->name('containers_filtrar_container');
 
 Route::resource('movimentacoes', MovimentacaoController::class);
-Route::post('movimentacoes/filtrar/container', [MovimentacaoController::class, 'filtrar_container'])->name('filtrar_container');
-Route::post('movimentacoes/filtrar/movimentacao', [MovimentacaoController::class, 'filtrar_movimentacao'])->name('filtrar_movimentacao');
+Route::post('movimentacoes/ordenar/container', [MovimentacaoController::class, 'ordenar_container'])->name('movimentacoes_ordernar_container');
+Route::post('movimentacoes/filtrar/container', [MovimentacaoController::class, 'filtrar_container'])->name('movimentacoes_filtrar_container');
+Route::post('movimentacoes/ordenar/movimentacao', [MovimentacaoController::class, 'ordenar_movimentacao'])->name('movimentacoes_ordernar_movimentacao');
+Route::post('movimentacoes/filtrar/movimentacao', [MovimentacaoController::class, 'filtrar_movimentacao'])->name('movimentacoes_filtrar_movimentacao');
 
 Route::get('relatorio', [MovimentacaoController::class, 'relatorio'])->name('relatorio');

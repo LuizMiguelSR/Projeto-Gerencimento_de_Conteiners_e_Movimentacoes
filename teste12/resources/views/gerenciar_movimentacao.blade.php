@@ -15,13 +15,28 @@
         </div>
         <h2>Gerenciar Movimentações</h2>
         <div>
-            <form class="row g-3" method="post" action="{{ route('filtrar_movimentacao') }}">
+            <form class="row g-3" method="post" action="{{ route('movimentacoes_ordernar_movimentacao') }}">
+                @csrf
+                <div class="col-md-12 mt-5">
+
+                    <label for="nome">Ordenar por cliente:</label>
+                    <select name="nome" id="nome">
+                        <option value="">Selecione</option>
+                        <option value="ASC">A-Z</option>
+                        <option value="DESC">Z-A</option>
+                    </select>
+
+                    <button type="submit" class="btn btn-primary">Ordenar</button>
+                </div>
+            </form>
+
+            <form class="row g-3" method="post" action="{{ route('movimentacoes_filtrar_movimentacao') }}">
                 @csrf
                 <div class="col-md-12 mt-5">
                     <label for="cliente">Cliente:</label>
                     <input pattern="([aA-zZzáàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+)" maxlength="50" type="text" name="cliente" id="cliente">
 
-                    <label for="numero_container">Número do Container:</label>
+                    <label for="numero_container">Número do Contêiner:</label>
                     <input pattern="[A-Z]{4}[0-9]{7}" maxlength="11" type="text" name="numero_container" id="numero_container">
 
                     <label for="tipo">Tipo de Movimentação:</label>
@@ -50,8 +65,8 @@
                 <thead>
                     <tr>
                         <th>Cliente</th>
-                        <th>Número do container</th>
-                        <th>Tipo</th>
+                        <th>Número do contêiner</th>
+                        <th>Tipo de movimentação</th>
                         <th>Data Hora Inicio</th>
                         <th>Data Hora Fim</th>
                         <th colspan="2">Opções</th>
@@ -90,13 +105,13 @@
                                         <label>Cliente:{{ $movimentacao->container->cliente }}</label>
                                     </div>
                                     <div>
-                                        <label>Número do Container:{{ $movimentacao->container->numero_container }}</label>
+                                        <label>Número do Contêiner:{{ $movimentacao->container->numero_container }}</label>
                                     </div>
                                     <form method="post" action="{{ route('movimentacoes.update', $movimentacao->id) }}">
                                         @csrf
                                         @method('PUT')
 
-                                        <label for="tipo">Tipo:</label>
+                                        <label for="tipo">Tipo de movimentação:</label>
                                         <select name="tipo">
                                             <option value="Embarque" {{ $movimentacao->tipo === "Embarque" ? "selected" : "" }}>Embarque</option>
                                             <option value="Descarga" {{ $movimentacao->tipo === "Descarga" ? "selected" : "" }}>Descarga</option>

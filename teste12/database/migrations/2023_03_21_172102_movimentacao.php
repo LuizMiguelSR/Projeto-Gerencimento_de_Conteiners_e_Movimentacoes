@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('container_id');
             $table->foreign('container_id')->references('id')->on('container');
-            $table->enum('tipo', ['Embarque','Descarga','Gate in','Gate out','Reposicionamento','Pesagem','Scanner']);
-            $table->dateTime('data_hora_inicio');
-            $table->dateTime('data_hora_fim');
+            $table->enum('tipo',['Embarque','Descarga','Gate in','Gate out','Reposicionamento','Pesagem','Scanner']);
+            $table->dateTime('hora_data_inicio');
+            $table->dateTime('hora_data_fim');
             $table->timestamps();
         });
     }
