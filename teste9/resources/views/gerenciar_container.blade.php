@@ -1,5 +1,5 @@
 @php
-    $title = "Gerenciar Containers";
+    $title = "Gerenciar Contêiners";
 @endphp
 
 @extends('layouts.layout')
@@ -13,14 +13,14 @@
                 <h1>Empresa X</h1>
             </div>
         </div>
-        <h2>Gerenciar Containers</h2>
+        <h2>Gerenciar Contêiners</h2>
         <div>
             <form class="row g-3" method="post" action="{{ route('ordenar') }}">
                 @csrf
                 <div class="col-md-12 mt-5">
 
-                    <label for="tipo">Ordenar:</label>
-                    <select name="tipo" id="tipo">
+                    <label for="nome">Ordenar por cliente:</label>
+                    <select name="nome" id="nome">
                         <option value="">Selecione</option>
                         <option value="ASC">A-Z</option>
                         <option value="DESC">Z-A</option>
@@ -30,13 +30,13 @@
                 </div>
             </form>
 
-            <form class="row g-3" method="post" action="{{ route('filtrar_container') }}">
+            <form class="row g-3" method="post" action="{{ route('filtrar') }}">
                 @csrf
                 <div class="col-md-12 mt-5">
-                    <label for="cliente">Cliente:</label>
+                    <label for="cliente">Filtrar por cliente:</label>
                     <input type="text" name="cliente" id="cliente" pattern="([aA-zZzáàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+)" maxlength="50">
 
-                    <label for="numero_container">Número do Container:</label>
+                    <label for="numero_container">Número do contêiner:</label>
                     <input type="text" name="numero_container" id="numero_container" pattern="[A-Z]{4}[0-9]{7}" maxlength="11">
 
                     <label for="tipo">Tipo:</label>
@@ -68,7 +68,7 @@
                 <thead>
                     <tr>
                         <th>Cliente</th>
-                        <th>Número do conteiner</th>
+                        <th>Número do contêiner</th>
                         <th>Tipo</th>
                         <th>Status</th>
                         <th>Categoria</th>
@@ -85,7 +85,7 @@
                         <td>{{ $container->categoria }}</td>
                         <td>
                             <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $container->id }}">
-                                Editar Container
+                                Editar Contêiner
                             </button>
                         </td>
                         <td>
@@ -108,7 +108,7 @@
                                         <label>Cliente:{{ $container->cliente }}</label>
                                     </div>
                                     <div>
-                                        <label>Número do Container:{{ $container->numero_container }}</label>
+                                        <label>Número do Contêiner:{{ $container->numero_container }}</label>
                                     </div>
                                     <form method="post" action="{{ route('containers.update', $container->id) }}">
                                         @csrf
