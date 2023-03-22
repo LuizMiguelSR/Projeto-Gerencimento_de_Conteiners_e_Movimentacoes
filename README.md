@@ -11,4 +11,4 @@
   - Projeto realizado utilizando PHP versão 8.2;
   - Usando framework back end Laravel versão 10;
   - Usando framework front end BootStrap versão 5.2;
-  - Usando como gerenciador de depedencias o Composer 2.5.5;
+  - Usando como gerenciador de depedências o Composer 2.5.5;
