@@ -1,4 +1,4 @@
-# 📋 Aplicação Web de Gerencimento de Cotêiners e Movimentações 📋
+# 📋 Aplicação Web de Gerencimento de Contêiners e Movimentações 📋
 
 - **DADOS DO SERVIDOR DE PRODUÇÃO**
 
